@@ -7,9 +7,25 @@ class Mascota {
     private int edad;
     private String historialMedico;
     private long duenoId;
+    private Estado estadoActual;
 
     public Mascota() {}
+;
 
+    public Mascota(long id, String nombre, String especie, int edad, Estado estadoInicial) {
+        this.id = id;
+        this.nombre = nombre;
+        this.especie = especie;
+        this.edad = edad;
+        this.estadoActual = estadoInicial;
+    }
+
+    public void cambiarEstado(Estado nuevoEstado, Empleado empleado) {
+        if (!empleado.puedeRegistrarEstado()) {
+            throw new SecurityException("Solo empleados autorizados pueden cambiar estados.");
+        }
+        this.estadoActual = nuevoEstado;
+    }
     public long getDuenoId() {
         return duenoId;
     }

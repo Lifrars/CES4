@@ -19,6 +19,10 @@ class Medicamento {
         this.fechaVencimiento = fechaVencimiento;
     }
 
+    public boolean estaVencido() {
+        return fechaVencimiento.isBefore(LocalDate.now());
+    }
+
     public int getCantidadStock() {
         return cantidadStock;
     }

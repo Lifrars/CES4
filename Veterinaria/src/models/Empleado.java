@@ -15,6 +15,18 @@ class Empleado {
         this.horario = horario;
     }
 
+    public boolean puedeRegistrarEstado() {
+        return rol.equals("veterinario") || rol.equals("admin");
+    }
+
+    public boolean puedeRecetar() {
+        return rol.equals("veterinario");
+    }
+
+    public boolean puedeGestionarInventario() {
+        return rol.equals("almacenista") || rol.equals("admin");
+    }
+
     public String getHorario() {
         return horario;
     }

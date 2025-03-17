@@ -1,12 +1,15 @@
 package models;
 
+import java.util.List;
+
 public class Cliente {
     private long id;
     private String nombre;
     private String telefono;
     private String email;
     private String direccion;
-
+    private List<Mascota> mascotas;
+    private Estado estadoActual;
     public Cliente() {}
 
     public Cliente(long id, String nombre, String telefono, String email, String direccion) {
@@ -17,6 +20,12 @@ public class Cliente {
         this.direccion = direccion;
     }
 
+    public void agregarMascota(Mascota mascota) {
+        if (mascotas.size() >= 5) {
+            throw new IllegalStateException("No se pueden registrar más de 5 mascotas.");
+        }
+        mascotas.add(mascota);
+    }
     public long getId() {
         return id;
     }
